@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="zh-Hant" data-reduced-motion="false">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>東京・富士山・伊豆 9 日遊｜離線單一繪本手冊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --washi: #FFFCF6;
+      --washi-soft: #F7F1E5;
+      --ink: #3E3A39;
+      --ink-muted: #6E6662;
+      --coral: #F2A497;
+      --coral-soft: #FCE5E0;
+      --yamabuki: #F6D27A;
+      --yamabuki-soft: #FDF2D0;
+      --mizuiro: #A8D3E6;
+      --mizuiro-soft: #E1F1F8;
+      --wakatake: #B9DAA5;
+      --wakatake-soft: #E7F3DF;
+    }
+    * { box-sizing: border-box; }
+    html {
+      font-family: 'Huninn', 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+      background: var(--washi);
+      color: var(--ink);
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px;
+    }
+    body {
+      margin: 0;
+      background: var(--washi);
+      color: var(--ink);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    button, input, select { font-family: inherit; color: var(--ink); }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+    /* Top fixed bar */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 56px;
+      background: var(--washi);
+      border-bottom: 3px solid var(--ink);
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+    }
+    .topbar-inner {
+      width: 100%;
+      max-width: 1120px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 15px;
+      padding: 8px 4px;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+    }
+    .nav-links a:hover { border-bottom-color: var(--coral); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 44px;
+      padding: 8px 16px;
+      background: var(--washi);
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      box-shadow: 3px 3px 0 var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 140ms ease, box-shadow 140ms ease;
+    }
+    .btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+    .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+    .btn-sm { min-height: 40px; padding: 6px 12px; font-size: 13px; border-radius: 14px; }
+    .btn-coral { background: var(--coral); }
+    .btn-yamabuki { background: var(--yamabuki); }
+    .btn-mizuiro { background: var(--mizuiro); }
+    .btn-wakatake { background: var(--wakatake); }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 76px 16px 64px;
+    }
+    .section { margin-top: 40px; }
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-size: clamp(22px, 3vw, 28px);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card {
+      background: var(--washi);
+      border: 3px solid var(--ink);
+      border-radius: 24px;
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 20px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 900px) {
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    /* Hero */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .hero-grid { grid-template-columns: 1.15fr 1fr; }
+    }
+    .hero-title {
+      font-size: clamp(28px, 4.5vw, 42px);
+      line-height: 1.2;
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+    .muted { color: var(--ink-muted); font-size: 14px; }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+    .cd-box {
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      padding: 10px 6px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    .cd-num { font-size: clamp(22px, 4vw, 30px); font-weight: 700; line-height: 1.1; }
+    .cd-lbl { font-size: 12px; margin-top: 4px; }
+
+    /* Flights */
+    .flight-route {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 14px 0;
+      padding: 14px;
+      background: var(--mizuiro-soft);
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+    }
+    .airport-code { font-size: 26px; font-weight: 700; line-height: 1.1; }
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .field label { display: block; font-size: 12px; margin-bottom: 4px; color: var(--ink-muted); }
+    .field input {
+      width: 100%;
+      min-height: 42px;
+      padding: 8px 10px;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--washi);
+      font-size: 14px;
+    }
+
+    /* Day switcher */
+    .day-tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 4px 2px 12px;
+      scrollbar-width: none;
+    }
+    .day-tabs::-webkit-scrollbar { display: none; }
+    .day-tab {
+      flex: 0 0 auto;
+      min-width: 84px;
+      min-height: 62px;
+      padding: 8px 14px;
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      background: var(--washi);
+      box-shadow: 3px 3px 0 var(--ink);
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    .day-tab.active { background: var(--yamabuki); }
+    .day-tab small { font-size: 12px; font-weight: 400; }
+
+    /* Timeline */
+    .day-banner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      margin-bottom: 18px;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      background: var(--ink);
+      border-radius: 99px;
+    }
+    .stop-card {
+      position: relative;
+      background: var(--washi);
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 16px;
+    }
+    .stop-dot {
+      position: absolute;
+      left: -25px;
+      top: 22px;
+      width: 17px;
+      height: 17px;
+      border-radius: 999px;
+      border: 3px solid var(--ink);
+      background: var(--yamabuki);
+    }
+    .stop-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .stop-time {
+      font-size: 17px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border: 2.5px solid var(--ink);
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .stamp-must {
+      background: var(--coral);
+      transform: rotate(-2deg);
+    }
+    .audit-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: var(--yamabuki-soft);
+      border: 2.5px solid var(--ink);
+      border-radius: 14px;
+      font-size: 13.5px;
+    }
+    .note-box {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    /* Checklists */
+    .cl-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .progress-track {
+      height: 18px;
+      background: var(--washi-soft);
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 10px 0 16px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--wakatake);
+      border-right: 3px solid var(--ink);
+      transition: width 220ms ease;
+    }
+    .cl-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 52px;
+      padding: 10px 12px;
+      border: 2.5px solid var(--ink);
+      border-radius: 16px;
+      background: var(--washi);
+      margin-bottom: 10px;
+    }
+    .cl-row.done { background: var(--wakatake-soft); }
+    .cl-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .cl-box {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      background: var(--washi);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    .cl-row.done .cl-box { background: var(--wakatake); }
+    .cl-row.done .cl-text { text-decoration: line-through; color: var(--ink-muted); }
+    .add-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .add-form input {
+      flex: 1 1 200px;
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      background: var(--washi);
+      font-size: 14px;
+    }
+
+    /* Animations */
+    @keyframes pbFloatSlow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    @keyframes pbDriftCloud { 0%,100%{transform:translateX(0)} 50%{transform:translateX(10px)} }
+    @keyframes pbDriftCloudReverse { 0%,100%{transform:translateX(0)} 50%{transform:translateX(-9px)} }
+    @keyframes pbSway { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
+    @keyframes pbSpinSlow { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+    @keyframes pbBobPlane { 0%,100%{transform:translate(0,0) rotate(-1.5deg)} 50%{transform:translate(4px,-5px) rotate(1.5deg)} }
+    @keyframes pbWaveBob { 0%,100%{transform:translateX(0)} 50%{transform:translateX(6px)} }
+    @keyframes pbDayBounce {
+      0% { opacity: 0; transform: translateY(14px) scale(0.97); }
+      62% { opacity: 1; transform: translateY(-4px) scale(1.01); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .anim-float { animation: pbFloatSlow 4.2s ease-in-out infinite; }
+    .anim-cloud { animation: pbDriftCloud 6.5s ease-in-out infinite; }
+    .anim-cloud-rev { animation: pbDriftCloudReverse 7.5s ease-in-out infinite; }
+    .anim-sway { animation: pbSway 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: top center; }
+    .anim-spin-slow { animation: pbSpinSlow 24s linear infinite; transform-box: fill-box; transform-origin: center; }
+    .anim-plane { animation: pbBobPlane 3.8s ease-in-out infinite; }
+    .anim-wave { animation: pbWaveBob 5s ease-in-out infinite; }
+    .anim-day-bounce { animation: pbDayBounce 420ms cubic-bezier(0.34,1.45,0.64,1) both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .anim-float,.anim-cloud,.anim-cloud-rev,.anim-sway,.anim-spin-slow,.anim-plane,.anim-wave,.anim-day-bounce {
+        animation: none !important; transform: none !important;
+      }
+    }
+    html[data-reduced-motion="true"] { scroll-behavior: auto; }
+    html[data-reduced-motion="true"] .anim-float,
+    html[data-reduced-motion="true"] .anim-cloud,
+    html[data-reduced-motion="true"] .anim-cloud-rev,
+    html[data-reduced-motion="true"] .anim-sway,
+    html[data-reduced-motion="true"] .anim-spin-slow,
+    html[data-reduced-motion="true"] .anim-plane,
+    html[data-reduced-motion="true"] .anim-wave,
+    html[data-reduced-motion="true"] .anim-day-bounce {
+      animation: none !important; transform: none !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="brand">富士山伊豆繪本旅</a>
+      <nav class="nav-links" aria-label="主選單">
+        <a href="#flights">航班</a>
+        <a href="#itinerary">每日行程</a>
+        <a href="#stays">住宿</a>
+        <a href="#checklists">清單</a>
+      </nav>
+      <button id="motionBtn" type="button" class="btn btn-sm btn-yamabuki" aria-pressed="false">
+        減少動態
+      </button>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="card hero-grid">
+      <div>
+        <div class="muted" style="margin-bottom:6px;">2027/01/27（三）～ 2027/02/04（四） · 建立者：Carcar chan</div>
+        <h1 class="hero-title">東京・富士山・伊豆 9 日遊</h1>
+        <p style="margin:0 0 14px; font-size:15px;">從羽田機場展開 9 天冬日慢旅：走訪箱根蘆之湖水上鳥居與大涌谷、環遊富士山五湖與雪景神社、深入伊豆大室山與修善寺溫泉、賞熱海早春梅花，最後漫步橫濱港未來與東京購物。</p>
+        <div id="countdownLabel" class="muted" style="font-weight:700;">距離羽田抵達倒數</div>
+        <div class="countdown-grid" aria-live="polite">
+          <div class="cd-box" style="background:var(--coral-soft)"><div id="cd-d" class="cd-num">--</div><div class="cd-lbl">天</div></div>
+          <div class="cd-box" style="background:var(--yamabuki-soft)"><div id="cd-h" class="cd-num">--</div><div class="cd-lbl">時</div></div>
+          <div class="cd-box" style="background:var(--mizuiro-soft)"><div id="cd-m" class="cd-num">--</div><div class="cd-lbl">分</div></div>
+          <div class="cd-box" style="background:var(--wakatake-soft)"><div id="cd-s" class="cd-num">--</div><div class="cd-lbl">秒</div></div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <a href="#itinerary" class="btn btn-coral">開始看 Day 1 行程</a>
+          <a href="#checklists" class="btn btn-wakatake">行前與行李清單</a>
+        </div>
+      </div>
+      <div><svg viewBox="0 0 560 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="富士山、箱根水上鳥居、纜車、自駕小車與橫濱摩天輪繪本插圖" class="w-full h-auto block">
+  <!-- Background Sky Canvas -->
+  <rect x="6" y="6" width="548" height="288" rx="22" fill="#E1F1F8" stroke="#3E3A39" stroke-width="3"/>
+
+  <!-- Warm Yamabuki Sun -->
+  <g class="anim-float">
+    <circle cx="96" cy="70" r="28" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+    <path d="M96 28V35M96 105V112M54 70H61M131 70H138M67 41L72 46M120 94L125 99M125 41L120 46M72 94L67 99" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Drifting Clouds -->
+  <g class="anim-cloud">
+    <path d="M162 66C162 58 169 52 178 52C182 44 194 42 202 48C210 47 218 53 218 62C223 64 226 70 222 76C220 79 216 80 212 80H168C161 80 156 73 162 66Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <g class="anim-cloud-rev">
+    <path d="M366 56C366 49 372 44 380 44C385 37 397 37 403 44C411 43 418 49 418 57C422 59 424 66 419 70C417 72 414 73 410 73H372C365 73 361 63 366 56Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Yokohama Ferris Wheel (Back Right) -->
+  <g transform="translate(455, 134)">
+    <g class="anim-spin-slow">
+      <circle cx="0" cy="0" r="46" fill="none" stroke="#3E3A39" stroke-width="3"/>
+      <circle cx="0" cy="0" r="32" fill="none" stroke="#3E3A39" stroke-width="2.5"/>
+      <line x1="0" y1="-46" x2="0" y2="46" stroke="#3E3A39" stroke-width="2.5"/>
+      <line x1="-46" y1="0" x2="46" y2="0" stroke="#3E3A39" stroke-width="2.5"/>
+      <line x1="-32.5" y1="-32.5" x2="32.5" y2="32.5" stroke="#3E3A39" stroke-width="2.5"/>
+      <line x1="32.5" y1="-32.5" x2="-32.5" y2="32.5" stroke="#3E3A39" stroke-width="2.5"/>
+      <circle cx="0" cy="-46" r="6" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <circle cx="46" cy="0" r="6" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5"/>
+      <circle cx="0" cy="46" r="6" fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.5"/>
+      <circle cx="-46" cy="0" r="6" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5"/>
+      <circle cx="32.5" cy="-32.5" r="5.5" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5"/>
+      <circle cx="32.5" cy="32.5" r="5.5" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+      <circle cx="-32.5" cy="32.5" r="5.5" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5"/>
+      <circle cx="-32.5" cy="-32.5" r="5.5" fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.5"/>
+    </g>
+    <!-- Wheel Stand -->
+    <path d="M-24 62L0 0L24 62" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="0" cy="0" r="10" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+  </g>
+
+  <!-- Mt. Fuji -->
+  <path d="M128 214C178 184 214 134 246 84C254 78 274 78 282 84C314 134 350 184 402 214Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Snow Cap -->
+  <path d="M246 84C254 78 274 78 282 84C293 102 303 118 313 132C301 124 291 138 281 128C271 119 262 138 251 128C241 119 231 134 217 130C227 115 237 100 246 84Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Ropeway Cable & Swinging Gondola -->
+  <line x1="20" y1="158" x2="210" y2="112" stroke="#3E3A39" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <g transform="translate(132, 131)">
+    <g class="anim-sway">
+      <line x1="0" y1="0" x2="0" y2="15" stroke="#3E3A39" stroke-width="2.5"/>
+      <rect x="-16" y="15" width="32" height="22" rx="7" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
+      <rect x="-10" y="20" width="8" height="8" rx="2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+      <rect x="2" y="20" width="8" height="8" rx="2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Soft Wakatake Green Rolling Hills (Omuroyama & Hakone) -->
+  <path d="M6 218C68 176 142 184 196 218Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M354 218C416 174 494 176 554 218Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Lake Surface -->
+  <rect x="6" y="214" width="548" height="44" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/>
+  <g class="anim-wave">
+    <path d="M168 232C178 228 188 236 198 232C208 228 218 236 228 232" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round"/>
+    <path d="M332 238C342 234 352 242 362 238C372 234 382 242 392 238" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Hakone Torii Gate on Lake -->
+  <g transform="translate(86, 174)">
+    <rect x="8" y="14" width="8" height="44" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
+    <rect x="44" y="14" width="8" height="44" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
+    <path d="M-2 10C18 16 42 16 62 10L60 20C42 24 18 24 0 20Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="4" y="28" width="52" height="8" rx="3" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
+    <rect x="26" y="19" width="8" height="11" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5"/>
+  </g>
+
+  <!-- Lakeside Road Foreground -->
+  <path d="M6 254H554V272C554 284 544 294 532 294H28C16 294 6 284 6 272V254Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/>
+  <line x1="28" y1="274" x2="532" y2="274" stroke="#3E3A39" stroke-width="2.5" stroke-dasharray="12 10" stroke-linecap="round"/>
+
+  <!-- Cute Picture-Book Self-Drive Car -->
+  <g class="anim-float" transform="translate(242, 224)">
+    <!-- Luggage on roof -->
+    <rect x="22" y="-7" width="24" height="10" rx="4" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/>
+    <path d="M12 22L20 5C22 2 25 1 29 1H51C55 1 58 2 60 5L68 22Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="4" y="20" width="72" height="22" rx="10" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+    <rect x="20" y="7" width="16" height="12" rx="4" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5"/>
+    <rect x="42" y="7" width="16" height="12" rx="4" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5"/>
+    <circle cx="20" cy="42" r="9" fill="#3E3A39"/>
+    <circle cx="20" cy="42" r="4" fill="#FFFCF6"/>
+    <circle cx="60" cy="42" r="9" fill="#3E3A39"/>
+    <circle cx="60" cy="42" r="4" fill="#FFFCF6"/>
+    <circle cx="71" cy="29" r="3" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+  </g>
+</svg></div>
+    </section>
+
+    <section id="flights" class="section">
+      <div class="section-head">
+        <h2 class="section-title">羽田航班資訊</h2>
+        <div><svg viewBox="0 0 180 86" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="繪本風小飛機插圖" class="w-36 h-auto block">
+  <g class="anim-cloud">
+    <path d="M16 66C16 60 22 56 28 57C32 51 42 51 46 57C52 57 56 62 54 67C53 70 50 71 47 71H22C17 71 14 68 16 66Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <g class="anim-cloud-rev">
+    <path d="M124 24C124 19 129 16 134 17C138 12 146 12 150 17C155 17 158 21 157 25C156 28 153 29 150 29H129C125 29 122 26 124 24Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <g class="anim-plane">
+    <!-- Tail fin -->
+    <path d="M40 38L28 18H44L58 36Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Body -->
+    <path d="M36 44C36 37 44 34 56 34H122C136 34 148 40 150 47C148 53 136 56 122 56H54C42 56 36 51 36 44Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Wing -->
+    <path d="M74 47L98 47L82 67H66Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+    <!-- Windows -->
+    <circle cx="72" cy="43" r="3.5" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+    <circle cx="86" cy="43" r="3.5" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+    <circle cx="100" cy="43" r="3.5" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+    <path d="M122 39C129 39 135 42 138 45H122V39Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+  </g>
+</svg></div>
+      </div>
+      <div id="flightsGrid" class="grid-2"></div>
+    </section>
+
+    <section id="itinerary" class="section">
+      <div class="section-head">
+        <h2 class="section-title">每日行程時間軸</h2>
+        <span class="muted">共 9 天 · 點選日期切換 · 重點標示「必去」與核對小提醒</span>
+      </div>
+      <div id="dayTabs" class="day-tabs" role="tablist" aria-label="行程日期切換"></div>
+      <div id="dayPanel"></div>
+    </section>
+
+    <section id="stays" class="section">
+      <div class="section-head">
+        <h2 class="section-title"><svg viewBox="0 0 80 68" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="繪本旅館插圖" class="w-14 h-auto block shrink-0">
+  <g class="anim-float">
+    <path d="M10 30L40 8L70 30Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="16" y="30" width="48" height="32" rx="6" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/>
+    <rect x="33" y="42" width="14" height="20" rx="4" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+    <rect x="22" y="36" width="8" height="8" rx="2" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2.5"/>
+    <rect x="50" y="36" width="8" height="8" rx="2" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2.5"/>
+  </g>
+</svg> 住宿資訊一覽</h2>
+        <span class="muted">4 間精選旅宿 · 共 8 晚</span>
+      </div>
+      <div id="staysGrid" class="grid-2"></div>
+    </section>
+
+    <section id="checklists" class="section">
+      <div class="section-head">
+        <h2 class="section-title"><svg viewBox="0 0 84 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="繪本行李與清單插圖" class="w-16 h-auto block shrink-0">
+  <g class="anim-float">
+    <path d="M28 18V10C28 8 30 6 32 6H52C54 6 56 8 56 10V18" stroke="#3E3A39" stroke-width="3"/>
+    <rect x="12" y="18" width="60" height="44" rx="12" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3"/>
+    <rect x="24" y="28" width="36" height="24" rx="6" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5"/>
+    <path d="M32 40L38 46L52 34" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="65" r="4" fill="#3E3A39"/>
+    <circle cx="60" cy="65" r="4" fill="#3E3A39"/>
+  </g>
+</svg> 旅遊互動清單</h2>
+        <span class="muted">打勾、新增與刪除會自動儲存在本機瀏覽器</span>
+      </div>
+      <div class="card">
+        <div id="clTabs" class="cl-tabs"></div>
+        <div id="clBody"></div>
+      </div>
+    </section>
+
+    <footer style="margin-top:48px; text-align:center;" class="muted">
+      東京・富士山・伊豆 9 日遊（2027/01/27（三）～ 2027/02/04（四））· 單一離線繪本版
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const DATA = {"meta":{"title":"東京・富士山・伊豆 9 日遊","subtitle":"冬日關東・箱根・富士五湖・伊豆・橫濱自駕慢旅","dateRange":"2027/01/27（三）～ 2027/02/04（四）","departureIso":"2027-01-27T21:15:00+09:00","creator":"Carcar chan","daysCount":9,"totalStops":48,"destinationIntro":"從羽田機場展開 9 天冬日慢旅：走訪箱根蘆之湖水上鳥居與大涌谷、環遊富士山五湖與雪景神社、深入伊豆大室山與修善寺溫泉、賞熱海早春梅花，最後漫步橫濱港未來與東京購物。"},"days":[{"day":1,"date":"2027/01/27","shortDate":"01/27","weekday":"三","area":"大田區・羽田機場","themeTitle":"羽田入境・機場花園暖心入住","sceneKey":"haneda","accentColor":"mizuiro","daySummaryTip":"晚間抵達羽田第 3 航廈後免舟車勞頓，直接步行連通羽田機場花園 4 樓辦理自助入住，養精蓄銳準備隔天自駕出發。","stops":[{"id":"d1-1","time":"21:15","name":"羽田機場第 3 航廈","duration":"停留 1 小時","transport":"flight","transportLabel":"班機抵達","note":"辦理入境審查、領取行李與海關申報（建議事先備妥 Visit Japan Web QR Code）。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%BE%BD%E7%94%B0%E7%A9%BA%E6%B8%AF%20%E7%AC%AC3%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB"},{"id":"d1-2","time":"22:21","name":"Hotel Villa Fontaine Grand 羽田機場","duration":"入住休息","transport":"walk","transportLabel":"步行直結","isHotel":true,"note":"入住櫃檯設在羽田機場花園 4 樓，可搭手扶梯從 2 樓直通 4 樓大廳，或搭旁邊廂型電梯。採自助式報到，在機台掃描護照、輸入訂房資料即可領取房卡。","mapUrl":"https://www.google.com/maps/search/?api=1&query=Hotel%20Villa%20Fontaine%20Grand%20Haneda%20Airport"}]},{"day":2,"date":"2027/01/28","shortDate":"01/28","weekday":"四","area":"大田區 → 箱根町 → 御殿場市","themeTitle":"箱根鳥居・大涌谷與天空步道","sceneKey":"hakone","accentColor":"coral","daySummaryTip":"核對小提醒：本日原動線在蘆之湖、桃源台與強羅之間有多次折返，建議可順走「強羅／彫刻之森 → 大涌谷 → 桃源台 → 箱根神社 → 三島天空步道 → 御殿場」。另外若原計畫要去強羅「餃子中心」，每週四公休（且平日 11:30 才開門）請留意避免撲空。","stops":[{"id":"d2-1","time":"08:00","name":"Hotel Villa Fontaine Grand 羽田機場","duration":"原排停留 1 小時","transport":"drive","transportLabel":"自駕出發","isHotel":true,"auditTip":"核對提醒：系統預設首站飯店停留 1 小時會延後出發，建議 08:00 準時取車出發，為箱根景點留出充裕白天時間。","mapUrl":"https://www.google.com/maps/search/?api=1&query=Hotel%20Villa%20Fontaine%20Grand%20Haneda%20Airport"},{"id":"d2-2","time":"11:45","name":"箱根神社","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","mustVisit":true,"note":"箱根必拍蘆之湖水上鳥居！平日中午約 12 點抵達大約需排隊 1 小時才能拍到美照；拍完也別忘了走上本社參拜並看看九頭龍神。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%AE%B1%E6%A0%B9%E7%A5%9E%E7%A4%BE%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E8%B6%B3%E6%9F%84%E4%B8%8B%E9%83%A1%E7%AE%B1%E6%A0%B9%E7%94%BA"},{"id":"d2-3","time":"12:59","name":"箱根空中纜車（桃源台駅）","duration":"停留 1 小時","transport":"ropeway","transportLabel":"空中纜車","note":"原筆記名稱為「箱根登山纜車（桃源台駅）」，實際連接桃源台站的為「箱根空中纜車（Hakone Ropeway）」。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%AE%B1%E6%A0%B9%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4%20%E6%A1%83%E6%BA%90%E5%8F%B0%E9%A7%85"},{"id":"d2-4","time":"14:07","name":"箱根強羅公園駐車場","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","auditTip":"動線提醒：從桃源台回強羅再上大涌谷會有山路折返，現場可依即時路況與纜車方向合併順遊。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%AE%B1%E6%A0%B9%E5%BC%B7%E7%BE%85%E5%85%AC%E5%9C%92%20%E9%A7%90%E8%BB%8A%E5%A0%B4"},{"id":"d2-5","time":"15:18","name":"大涌口（箱根纜車 大涌谷站）","duration":"停留 1 小時 30 分鐘","transitNote":"前段車程約 12 分鐘","transport":"ropeway","transportLabel":"空中纜車","note":"欣賞火山地熱白煙與富士山遠景，必嚐大涌谷名物黑玉子（黑蛋）。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%AE%B1%E6%A0%B9%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4%20%E5%A4%A7%E6%B6%8C%E8%B0%B7%E9%A7%85"},{"id":"d2-6","time":"17:03","name":"彫刻の森美術館","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","mustVisit":true,"auditTip":"營業時間衝突：官方開放至 17:00（最後入館 16:30），17:03 抵達已經閉館！強烈建議提前至中午前後造訪。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E5%BD%AB%E5%88%BB%E3%81%AE%E6%A3%AE%E7%BE%8E%E8%A1%93%E9%A4%A8%20%E7%AE%B1%E6%A0%B9"},{"id":"d2-7","time":"18:22","name":"三島天空步道（Mishima Sky Walk）","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","note":"位於靜岡縣、全長 400 公尺的懸索橋，可遠眺富士山與駿河灣壯麗景色。基本門票成人 1,100 日圓起。","auditTip":"營業時間衝突：營業至 17:00，且 1 月底 17:05 即日落天黑，18:22 已閉園無法賞景，建議調整至白天順路前往。","mapUrl":"https://www.google.com/maps/search/?api=1&query=Mishima%20Sky%20Walk%20Parking%20Lot%20%E4%B8%89%E5%B3%B6%E3%82%B9%E3%82%AB%E3%82%A4%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AF"},{"id":"d2-8","time":"19:48","name":"HOTEL CLAD","duration":"入住休息（連住 3 晚）","transport":"drive","transportLabel":"自駕","isHotel":true,"note":"位於御殿場 Outlet 旁，館內設有可望富士山的木花之湯溫泉，適合泡湯舒緩一天山路車程。","mapUrl":"https://www.google.com/maps/search/?api=1&query=HOTEL%20CLAD%20%E5%BE%A1%E6%AE%BF%E5%A0%B4"}]},{"day":3,"date":"2027/01/29","shortDate":"01/29","weekday":"五","area":"御殿場市 → 富士河口湖町 → 富士宮市","themeTitle":"富士山五湖巡禮・絕景打卡日","sceneKey":"fuji","accentColor":"mizuiro","daySummaryTip":"核對小提醒：1 月底富士山區日落約為 17:05，18:00 後天色全黑無法拍攝富士山街景！原路線在富士吉田、河口湖與山中湖間折返較多，建議順時針繞行「山中湖 → 忍野八海 → 新倉山／日川時計店 → 河口湖周邊」，白絲瀑布可斟酌調整。","stops":[{"id":"d3-1","time":"08:00","name":"HOTEL CLAD","duration":"原排停留 1 小時","transitNote":"往下一站約 47 分鐘","transport":"drive","transportLabel":"自駕出發","isHotel":true,"auditTip":"核對提醒：建議 08:00 直接出發（首站不計 1 小時停留），把握冬季上午富士山最清澈的逆光少雲時段。","mapUrl":"https://www.google.com/maps/search/?api=1&query=HOTEL%20CLAD%20%E5%BE%A1%E6%AE%BF%E5%A0%B4"},{"id":"d3-2","time":"09:46","name":"新倉富士浅間神社","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","note":"登上 398 階咲くや姫階梯，遠眺忠靈塔五重塔與白雪富士山經典構圖。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%80%89%E5%AF%8C%E5%A3%AB%E6%B5%85%E9%96%93%E7%A5%9E%E7%A4%BE%20%E5%AF%8C%E5%A3%AB%E5%90%89%E7%94%B0"},{"id":"d3-3","time":"11:03","name":"河口浅間神社遥拝所 専用駐車場","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","note":"前往「天空鳥居」必經專用停車場（Kawaguchi, Fujikawaguchiko, Yamanashi 401-0304）。","mapUrl":"https://maps.app.goo.gl/UmNzpZbGaT7P8PTn9"},{"id":"d3-4","time":"12:28","name":"山中湖（ママの森展望台）","duration":"停留 30 分鐘","transitNote":"往下一站約 15 分鐘","transport":"drive","transportLabel":"自駕","auditTip":"動線提醒：山中湖與忍野八海靠近御殿場，改為早上第一站出發再往富士吉田與河口湖可省去大量折返車程。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E5%B1%B1%E4%B8%AD%E6%B9%96%20%E3%83%91%E3%83%8E%E3%83%A9%E3%83%9E%E5%8F%B0%20%E3%83%9E%E3%83%9E%E3%81%AE%E6%A3%AE%E5%B1%95%E6%9C%9B%E5%8F%B0"},{"id":"d3-5","time":"13:12","name":"忍野八海（池本駐車場）","duration":"停留 1 小時","transitNote":"往下一站約 29 分鐘","transport":"drive","transportLabel":"自駕","note":"富士山雪水湧泉形成的八座清澈池塘，推薦順道品嚐現烤草餅與豆腐小吃。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E5%BF%8D%E9%87%8E%E5%85%AB%E6%B5%B7%20%E6%B1%A0%E6%9C%AC%E9%A7%90%E8%BB%8A%E5%A0%B4"},{"id":"d3-6","time":"14:42","name":"大石公園","duration":"停留 1 小時","transitNote":"往下一站約 11 分鐘","transport":"drive","transportLabel":"自駕","mustVisit":true,"note":"河口湖北岸無遮蔽富士山全景名所，園區內有伴手禮店與季節霜淇淋。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%9F%B3%E5%85%AC%E5%9C%92%20%E6%B2%B3%E5%8F%A3%E6%B9%96"},{"id":"d3-7","time":"15:53","name":"河口湖 富士山全景纜車","duration":"停留 1 小時","transport":"ropeway","transportLabel":"空中纜車","note":"搭纜車登天上山公園，俯瞰河口湖與壯闊富士山。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E5%AF%8C%E5%A3%AB%E5%B1%B1%E3%83%91%E3%83%8E%E3%83%A9%E3%83%9E%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4%20%E6%B2%B3%E5%8F%A3%E6%B9%96"},{"id":"d3-8","time":"17:04","name":"富士吉田市営宮川橋南駐車場（拍日川時計店）","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","note":"步行前往本町通商店街拍攝日川時計店街景之推薦停車點。","auditTip":"冬季日落提醒：1 月底山梨日落約為 17:05，抵達時天色已快速轉暗，建議提早至中午前後與新倉山一併安排。","mapUrl":"https://maps.app.goo.gl/TVhqH1uRd6k2NKqV7"},{"id":"d3-9","time":"18:08","name":"日川時計店","duration":"停留 1 小時","transport":"walk","transportLabel":"步行","mustVisit":true,"note":"超人氣昭和商店街盡頭直望富士山的經典打卡點，拍照請注意往來車輛與行人安全。","auditTip":"天黑提醒：18:08 已完全天黑無法拍到富士山輪廓，務必調整到日落前（16:00 前）拍攝。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%B7%9D%E6%99%82%E8%A8%88%E5%BA%97%20%E5%AF%8C%E5%A3%AB%E5%90%89%E7%94%B0%E5%B8%82"},{"id":"d3-10","time":"20:00","name":"白絲瀑布（白糸の滝）","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","auditTip":"夜間與車程提醒：位於富士宮市，夜間無照明看不見瀑布，且開回御殿場需 1～1.5 小時，建議改排白天或視時間取捨。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%99%BD%E7%B3%B8%E3%81%AE%E6%BB%9D%20%E9%9D%99%E5%B2%A1%E7%9C%8C%E5%AF%8C%E5%A3%AB%E5%AE%AE%E5%B8%82"},{"id":"d3-11","time":"21:12","name":"FamilyMart 影馬路富士山景","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","auditTip":"夜間提醒：天黑後無法看清後方富士山，建議白天途經河口湖市區時順路停靠拍攝。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%83%9E%E3%83%BC%E3%83%88%20%E6%B2%B3%E5%8F%A3%E6%B9%96%E9%A7%85%E5%89%8D"},{"id":"d3-12","time":"22:00","name":"HOTEL CLAD","duration":"返回飯店休息","transport":"drive","transportLabel":"自駕","isHotel":true,"note":"返回御殿場飯店休息（已依核對報告補列返宿行程）。","mapUrl":"https://www.google.com/maps/search/?api=1&query=HOTEL%20CLAD%20%E5%BE%A1%E6%AE%BF%E5%A0%B4"}]},{"day":4,"date":"2027/01/30","shortDate":"01/30","weekday":"六","area":"御殿場市","themeTitle":"御殿場 Outlet 悠閒血拼日","sceneKey":"gotemba","accentColor":"yamabuki","daySummaryTip":"本日不拉車！HOTEL CLAD 就位在御殿場 Outlet 園區旁步行可達，睡飽吃早餐再悠閒逛街、賞富士山與泡溫泉。","stops":[{"id":"d4-1","time":"08:00","name":"HOTEL CLAD","duration":"悠閒早餐・準備出發","transitNote":"步行約 5–10 分鐘","transport":"walk","transportLabel":"步行","mustVisit":true,"isHotel":true,"note":"飯店與 Outlet 緊鄰，可先享用早餐並確認戰利品購物清單與護照（辦理免稅用）。","mapUrl":"https://www.google.com/maps/search/?api=1&query=HOTEL%20CLAD%20%E5%BE%A1%E6%AE%BF%E5%A0%B4"},{"id":"d4-2","time":"09:10","name":"Gotemba Premium Outlets","duration":"全日購物","transport":"walk","transportLabel":"步行","note":"日本規模最大的富士山景 Outlet，匯集眾多精品、戶外運動與日系選物品牌；記得帶護照享免稅。","auditTip":"營業時間提醒：御殿場 Outlet 通常 10:00 才正式開門，09:10 抵達偏早，可 09:45 再從飯店散步出發即可。","mapUrl":"https://www.google.com/maps/search/?api=1&query=Gotemba%20Premium%20Outlets%20%E5%BE%A1%E6%AE%BF%E5%A0%B4%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%A0%E3%83%BB%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AC%E3%83%83%E3%83%88"},{"id":"d4-3","time":"21:00","name":"HOTEL CLAD","duration":"滿載而歸・溫泉休息","transport":"walk","transportLabel":"步行","isHotel":true,"note":"把戰利品放回房間整理，隔天退房準備前往伊豆半島！","mapUrl":"https://www.google.com/maps/search/?api=1&query=HOTEL%20CLAD%20%E5%BE%A1%E6%AE%BF%E5%A0%B4"}]},{"day":5,"date":"2027/01/31","shortDate":"01/31","weekday":"日","area":"御殿場市 → 伊東市 → 伊豆市","themeTitle":"大室山・水豚泡湯與伊豆全景","sceneKey":"izu","accentColor":"wakatake","daySummaryTip":"核對小提醒：うな繁鰻魚飯 11:00 才開門，建議調整為午餐或稍微晚點出發；伊豆全景公園冬季（至 2/15）只營業到 17:00，上山末班纜車為 16:30，請掌握車程！","stops":[{"id":"d5-1","time":"08:00","name":"HOTEL CLAD","duration":"退房出發","transport":"drive","transportLabel":"自駕出發","isHotel":true,"note":"退房啟程南下前往伊豆半島。","mapUrl":"https://www.google.com/maps/search/?api=1&query=HOTEL%20CLAD%20%E5%BE%A1%E6%AE%BF%E5%A0%B4"},{"id":"d5-2","time":"09:28","name":"うな繁（Unashige）鰻魚飯","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","note":"超人氣炭烤鰻魚飯名店。營業時間：週四～週二 11:00–20:00（每週三公休），附專用停車場。","auditTip":"營業時間衝突：店家 11:00 才開門，09:28 抵達須空等 1.5 小時，建議改約 10:45 抵達排第一輪或調整順序。","mapUrl":"https://maps.app.goo.gl/cRTWPJ4XvMgdVbYr7"},{"id":"d5-3","time":"11:12","name":"大室山","duration":"停留 1 小時","transport":"lift","transportLabel":"登山吊椅","mustVisit":true,"note":"搭乘可愛的雙人登山吊椅登上圓滾滾的火山口，沿 1 公里環山步道 360 度眺望富士山、相模灣與伊豆群島。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%AE%A4%E5%B1%B1%E3%83%AA%E3%83%95%E3%83%88%20%E9%9D%99%E5%B2%A1%E7%9C%8C%E4%BC%8A%E6%9D%B1%E5%B8%82"},{"id":"d5-4","time":"12:15","name":"伊豆仙人掌動物園（Izu Shaboten Zoo）","duration":"停留 1 小時 30 分鐘","transport":"drive","transportLabel":"自駕","mustVisit":true,"note":"就在大室山旁！冬季最經典的「水豚露天柚子溫泉」就在這裡，還能近距離與溫馴小動物互動。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E8%B1%86%E3%82%B7%E3%83%A3%E3%83%9C%E3%83%86%E3%83%B3%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92"},{"id":"d5-5","time":"13:51","name":"城ヶ崎海岸（市営門脇駐車場）","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","note":"走上懸掛在斷崖絕壁間的門脇吊橋，欣賞太平洋驚濤拍岸的壯麗海岸線。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E5%9F%8E%E3%83%B6%E5%B4%8E%E6%B5%B7%E5%B2%B8%20%E5%B8%82%E5%96%B6%E9%96%80%E8%84%87%E9%A7%90%E8%BB%8A%E5%A0%B4"},{"id":"d5-6","time":"15:28","name":"伊豆全景公園（Izu Panorama Park）","duration":"停留 1 小時","transport":"ropeway","transportLabel":"空中纜車","note":"位於靜岡縣伊豆之國市長岡 260-1。搭乘全長 1.8 公里纜車約 7 分鐘抵山頂碧露台，遠眺富士山、駿河灣與天城連峰。","auditTip":"冬季營業提醒：10/16～2/15 冬季僅營業至 17:00，上山末班纜車為 16:30（非夏季 17:30），請留意路況提早抵達。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E8%B1%86%E3%83%91%E3%83%8E%E3%83%A9%E3%83%9E%E3%83%91%E3%83%BC%E3%82%AF%20%E9%9D%99%E5%B2%A1%E7%9C%8C%E4%BC%8A%E8%B1%86%E3%81%AE%E5%9B%BD%E5%B8%82%E9%95%B7%E5%B2%A1260-1"},{"id":"d5-7","time":"16:37","name":"湯めぐりの宿桂川","duration":"溫泉旅館入住","transport":"drive","transportLabel":"自駕","isHotel":true,"note":"入住修善寺溫泉區「湯めぐりの宿桂川」，盡情享受免費貸切風呂與溫泉會席料理。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E6%B9%AF%E3%82%81%E3%81%90%E3%82%8A%E3%81%AE%E5%AE%BF%20%E6%A1%82%E5%B7%9D%20%E4%BF%AE%E5%96%84%E5%AF%BA"}]},{"day":6,"date":"2027/02/01","shortDate":"02/01","weekday":"一","area":"伊豆市 → 熱海市 → 橫濱市","themeTitle":"熱海早春賞梅・布丁與港未來","sceneKey":"atami","accentColor":"coral","daySummaryTip":"2 月初正值熱海梅園梅花祭！上午悠閒賞早春梅花、逛商店街吃魚漿天婦羅與熱海布丁，下午北上入住橫濱港未來。","stops":[{"id":"d6-1","time":"08:00","name":"湯めぐりの宿桂川","duration":"溫泉晨湯・退房出發","transport":"drive","transportLabel":"自駕出發","isHotel":true,"mapUrl":"https://www.google.com/maps/search/?api=1&query=%E6%B9%AF%E3%82%81%E3%81%90%E3%82%8A%E3%81%AE%E5%AE%BF%20%E6%A1%82%E5%B7%9D%20%E4%BF%AE%E5%96%84%E5%AF%BA"},{"id":"d6-2","time":"09:50","name":"熱海梅園","duration":"停留 1 小時","transport":"drive","transportLabel":"自駕","note":"地址：〒413-0032 静岡県熱海市梅園町8-11（已核對補上正式名稱）。日本最早盛開的梅花園之一，2 月初正值梅花祭最美花期！","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%86%B1%E6%B5%B7%E6%A2%85%E5%9C%92%20%E9%9D%99%E5%B2%A1%E7%9C%8C%E7%86%B1%E6%B5%B7%E5%B8%82%E6%A2%85%E5%9C%92%E7%94%BA8-11"},{"id":"d6-3","time":"10:59","name":"熱海磯揚丸天（魚漿天婦羅・熱海店）","duration":"停留 10 分鐘","transitNote":"往下一站約 8 分鐘","transport":"walk","transportLabel":"步行","note":"現炸熱騰騰的章魚棒與起司魚漿天婦羅，邊逛商店街邊吃剛剛好。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%A3%AF%E6%8F%9A%E3%81%92%20%E3%81%BE%E3%82%8B%E5%A4%A9%20%E7%86%B1%E6%B5%B7%E5%BA%97"},{"id":"d6-4","time":"11:16","name":"熱海布丁 Cafe 2nd","duration":"停留 15 分鐘","transitNote":"往下一站約 9 分鐘","transport":"walk","transportLabel":"步行","mustVisit":true,"note":"以日本澡堂磁磚為主題的超人氣可愛布丁店，推薦原味焦糖與季節限定口味！","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%86%B1%E6%B5%B7%E3%83%97%E3%83%AA%E3%83%B3%E3%82%AB%E3%83%95%E3%82%A7%202nd"},{"id":"d6-5","time":"11:40","name":"伊豆山神社（祈求幸福結緣聖地）","duration":"停留 30 分鐘","transitNote":"往下一站約 13 分鐘","transport":"drive","transportLabel":"自駕","note":"擁有 189 階石階與紅白雙龍手水舍的強運結緣神社（已修正原文錯字「結綠」為「結緣」）。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E8%B1%86%E5%B1%B1%E7%A5%9E%E7%A4%BE%20%E7%86%B1%E6%B5%B7%E5%B8%82"},{"id":"d6-6","time":"12:23","name":"Atami Ropeway（熱海空中纜車）","duration":"停留 1 小時","transport":"ropeway","transportLabel":"空中纜車","note":"約 3 分鐘登頂八幡山展望台，俯瞰熱海灣全景與熱海城。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%82%BF%E3%83%9F%E3%83%AD%E3%83%BC%E3%83%97%E3%82%A6%E3%82%A7%E3%82%A4%20%E7%86%B1%E6%B5%B7"},{"id":"d6-7","time":"15:01","name":"三井花園飯店橫濱港未來普米爾","duration":"辦理入住（連住 3 晚）","transport":"drive","transportLabel":"自駕","mustVisit":true,"isHotel":true,"note":"高樓層景觀大廳俯瞰橫濱港未來天際線，鄰近購物商場與地鐵站。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BA%95%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB%E6%A8%AA%E6%B5%9C%E3%81%BF%E3%81%AA%E3%81%A8%E3%81%BF%E3%82%89%E3%81%84%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2"}]},{"day":7,"date":"2027/02/02","shortDate":"02/02","weekday":"二","area":"橫濱市 → 東京都內購物","themeTitle":"東京市內自由購物慢漫遊","sceneKey":"tokyo","accentColor":"yamabuki","daySummaryTip":"本日為彈性自由購物日！從橫濱港未來搭電車進澀谷、新宿、銀座或東京車站都十分方便；另橫濱合味道紀念館每週二公休，安排在隔天 Day 8 剛剛好。","stops":[{"id":"d7-1","time":"08:00","name":"三井花園飯店橫濱港未來普米爾","duration":"悠閒出發","transport":"train","transportLabel":"電車出發","mustVisit":true,"isHotel":true,"note":"從飯店步行至港未來站或櫻木町站，搭乘港未來線／東急東橫線或 JR 直達東京市區。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BA%95%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB%E6%A8%AA%E6%B5%9C%E3%81%BF%E3%81%AA%E3%81%A8%E3%81%BF%E3%82%89%E3%81%84%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2"},{"id":"d7-2","time":"全日","name":"東京市內逛街購物（地點待定）","duration":"自由安排","transport":"train","transportLabel":"電車","note":"熱門候選區：銀座（精品與百貨）、澀谷／原宿（潮流選物）、新宿（藥妝電器一次買齊）或東京車站一番街；若想看海也可改排鎌倉・江之島一日遊！","auditTip":"行前小提醒：可在下方「待辦清單」中提早寫下最想逛的東京街區或預約想吃的餐廳。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%80%E7%95%AA%E8%A1%97"}]},{"day":8,"date":"2027/02/03","shortDate":"02/03","weekday":"三","area":"橫濱市・港未來","themeTitle":"橫濱港未來・杯麵・摩天輪與紅磚倉庫","sceneKey":"yokohama","accentColor":"mizuiro","daySummaryTip":"核對小提醒：合味道紀念館 10:00 開館、摩天輪 COSMOCLOCK 21 平日 11:00 才開始營業，早上可以睡到 09:30 再步行出發，全程海港散步超愜意！","stops":[{"id":"d8-1","time":"08:00","name":"三井花園飯店橫濱港未來普米爾","duration":"輕鬆早餐","transport":"walk","transportLabel":"步行出發","isHotel":true,"mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BA%95%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB%E6%A8%AA%E6%B5%9C%E3%81%BF%E3%81%AA%E3%81%A8%E3%81%BF%E3%82%89%E3%81%84%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2"},{"id":"d8-2","time":"09:01","name":"合味道紀念館 橫濱（Cupnoodles Museum）","duration":"停留 1 小時","transport":"walk","transportLabel":"步行","mustVisit":true,"note":"親手彩繪並客製專屬配料的「我的合味道工廠」杯麵！","auditTip":"開館時間提醒：官方 10:00 開館（每週二休館），09:01 抵達早了近 1 小時，建議 09:45–09:55 到達即可。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E3%82%AB%E3%83%83%E3%83%97%E3%83%8C%E3%83%BC%E3%83%89%E3%83%AB%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%20%E6%A8%AA%E6%B5%9C"},{"id":"d8-3","time":"10:02","name":"摩天輪 COSMOCLOCK 21","duration":"停留 1 小時","transport":"walk","transportLabel":"步行","note":"橫濱港未來經典地標大摩天輪，高空飽覽海灣大橋與港灣風光。","auditTip":"營業時間提醒：橫濱太空世界平日 11:00 才開始營業，建議排在合味道紀念館後或傍晚欣賞日落夜景。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E3%82%B3%E3%82%B9%E3%83%A2%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF21%20%E6%A8%AA%E6%B5%9C"},{"id":"d8-4","time":"11:06","name":"横浜赤レンガ倉庫 2 号館","duration":"停留 1 小時","transport":"walk","transportLabel":"步行","mustVisit":true,"note":"復古紅磚歷史建築改建而成的海景文創商場，匯集橫濱限定甜點與特色雜貨。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E6%A8%AA%E6%B5%9C%E8%B5%A4%E3%83%AC%E3%83%B3%E3%82%AC%E5%80%89%E5%BA%AB%202%E5%8F%B7%E9%A4%A8"},{"id":"d8-5","time":"12:10","name":"山下公園","duration":"停留 1 小時","transport":"walk","transportLabel":"步行","note":"沿橫濱港濱海步道散步，欣賞冰川丸郵輪與冬日清爽海風。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E5%B1%B1%E4%B8%8B%E5%85%AC%E5%9C%92%20%E6%A8%AA%E6%B5%9C"},{"id":"d8-6","time":"13:18","name":"木曽路壽喜燒","duration":"停留 1 小時","transport":"walk","transportLabel":"步行","note":"高人氣日本老字號和牛壽喜燒與涮涮鍋，為橫濱旅程畫上美味句點（建議提前線上訂位）。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E6%9C%A8%E6%9B%BD%E8%B7%AF%20%E6%A8%AA%E6%B5%9C"},{"id":"d8-7","time":"14:34","name":"三井花園飯店橫濱港未來普米爾","duration":"回飯店整理行李","transport":"walk","transportLabel":"步行","isHotel":true,"note":"最後一晚整理戰利品與秤重打包，確認退稅物品不拆封且行動電源改放隨身行李。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BA%95%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB%E6%A8%AA%E6%B5%9C%E3%81%BF%E3%81%AA%E3%81%A8%E3%81%BF%E3%82%89%E3%81%84%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2"}]},{"day":9,"date":"2027/02/04","shortDate":"02/04","weekday":"四","area":"橫濱市 → 大田區・羽田機場","themeTitle":"滿載回憶・羽田機場平安返程","sceneKey":"return","accentColor":"wakatake","daySummaryTip":"旅途最終日！從橫濱港未來前往羽田第 3 航廈約 26 分鐘，退房前再三檢查護照、鑰匙與隨身手提物品。","stops":[{"id":"d9-1","time":"08:00","name":"三井花園飯店橫濱港未來普米爾","duration":"退房出發","transitNote":"往羽田機場約 26 分鐘","transport":"drive","transportLabel":"自駕／接駁","mustVisit":true,"isHotel":true,"note":"辦理退房並前往羽田機場（若為租車自駕請預留還車與接駁時間）。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BA%95%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB%E6%A8%AA%E6%B5%9C%E3%81%BF%E3%81%AA%E3%81%A8%E3%81%BF%E3%82%89%E3%81%84%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2"},{"id":"d9-2","time":"09:25","name":"羽田機場第 3 航廈","duration":"報到・免稅最後衝刺","transport":"flight","transportLabel":"搭機返程","note":"辦理登機與行李託運，出境前可逛江戶小路與羽田免稅伴手禮，帶著滿滿回憶平安回家！","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E7%BE%BD%E7%94%B0%E7%A9%BA%E6%B8%AF%20%E7%AC%AC3%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB"}]}],"stays":[{"id":"stay-1","name":"Hotel Villa Fontaine Grand 羽田機場","area":"東京都・大田區（羽田機場花園）","checkIn":"01/27（三）","checkOut":"01/28（四）","nights":1,"dayNumber":1,"accent":"mizuiro","highlights":"與羽田第 3 航廈直結，深夜入境免轉車最省力。","checkInNote":"入住櫃檯在羽田機場花園 4 樓，從 2 樓搭手扶梯直通 4 樓大廳或旁邊廂型電梯；採自助式報到，機台掃描護照與輸入訂房資料即可取卡。","mapUrl":"https://www.google.com/maps/search/?api=1&query=Hotel%20Villa%20Fontaine%20Grand%20Haneda%20Airport"},{"id":"stay-2","name":"HOTEL CLAD","area":"靜岡縣・御殿場市","checkIn":"01/28（四）","checkOut":"01/31（日）","nights":3,"dayNumber":2,"accent":"wakatake","highlights":"緊鄰御殿場 Outlet 步行即達，館內附富士山景「木花之湯」溫泉。","checkInNote":"連住 3 晚作為箱根、富士五湖與御殿場 Outlet 基地，免天天搬行李超輕鬆！","mapUrl":"https://www.google.com/maps/search/?api=1&query=HOTEL%20CLAD%20%E5%BE%A1%E6%AE%BF%E5%A0%B4"},{"id":"stay-3","name":"湯めぐりの宿桂川","area":"靜岡縣・伊豆市（修善寺溫泉）","checkIn":"01/31（日）","checkOut":"02/01（一）","nights":1,"dayNumber":5,"accent":"yamabuki","highlights":"共立度假村旗下修善寺溫泉旅館，享多款特色免費貸切風呂。","checkInNote":"建議 17:00 前抵達辦理入住，留足時間泡湯與享用日式晚餐及免費宵夜拉麵。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E6%B9%AF%E3%82%81%E3%81%90%E3%82%8A%E3%81%AE%E5%AE%BF%20%E6%A1%82%E5%B7%9D%20%E4%BF%AE%E5%96%84%E5%AF%BA"},{"id":"stay-4","name":"三井花園飯店橫濱港未來普米爾","area":"神奈川縣・橫濱市港未來","checkIn":"02/01（一）","checkOut":"02/04（四）","nights":3,"dayNumber":6,"accent":"coral","highlights":"高樓層海港視野客房，步行即抵橫濱港未來各大景點與車站。","checkInNote":"連住 3 晚輕鬆串連東京市區購物與橫濱慢遊，退房前往羽田第 3 航廈僅約 26 分鐘車程。","mapUrl":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BA%95%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB%E6%A8%AA%E6%B5%9C%E3%81%BF%E3%81%AA%E3%81%A8%E3%81%BF%E3%82%89%E3%81%84%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2"}],"transportStyle":{"drive":{"bg":"#B9DAA5","label":"自駕"},"ropeway":{"bg":"#A8D3E6","label":"空中纜車"},"lift":{"bg":"#A8D3E6","label":"登山吊椅"},"walk":{"bg":"#F6D27A","label":"步行"},"train":{"bg":"#F2A497","label":"電車"},"flight":{"bg":"#F2A497","label":"航班"}},"initialFlights":[{"id":"outbound","label":"去程航班","date":"2027/01/27","weekday":"週三","airline":"請點編輯填入航空公司","flightNumber":"待填班次","fromCode":"DEP","fromName":"出發機場（可編輯）","toCode":"HND","toName":"東京羽田機場","departTime":"待填時間","arriveTime":"21:15","terminal":"第 3 航廈（T3）","bookingRef":"待填訂位代號","note":"入境後直通羽田機場花園 4 樓辦理 Hotel Villa Fontaine Grand 入住。"},{"id":"return","label":"回程航班","date":"2027/02/04","weekday":"週四","airline":"請點編輯填入航空公司","flightNumber":"待填班次","fromCode":"HND","fromName":"東京羽田機場","toCode":"ARR","toName":"返程機場（可編輯）","departTime":"預計 09:25 抵機場","arriveTime":"待填時間","terminal":"第 3 航廈（T3）","bookingRef":"待填訂位代號","note":"08:00 從橫濱港未來飯店出發，車程約 26 分鐘抵達羽田機場第 3 航廈。"}],"initialChecklists":{"todo":[{"id":"todo-1","text":"預約日本租車（務必加選「冬季雪胎」＋ ETC 卡，確認羽田取車／還車點）","category":"交通","done":false},{"id":"todo-2","text":"調整 Day 2 箱根動線，讓彫刻之森與三島天空步道在 16:30 前入園（避開週四公休的強羅餃子中心）","category":"行程核對","done":false},{"id":"todo-3","text":"確認 Day 3 河口湖與日川時計店拍照順序（1 月底 17:05 日落前完成拍攝）","category":"行程核對","done":false},{"id":"todo-4","text":"決定 Day 7 東京都內逛街購物重點區（銀座／澀谷／新宿／東京車站）","category":"行程安排","done":false},{"id":"todo-5","text":"線上預約 Day 8 橫濱「木曽路壽喜燒」午餐座位","category":"美食預約","done":false},{"id":"todo-6","text":"整理 4 間飯店訂房編號與停車場收費方式（含羽田自助報到資料）","category":"住宿","done":false}],"preDeparture":[{"id":"pre-1","text":"確認護照有效期限在 6 個月以上並拍照留存備份","category":"證件","done":false},{"id":"pre-2","text":"申辦台灣駕照日文譯本，並確認隨身攜帶台灣駕照正本","category":"自駕必備","done":false},{"id":"pre-3","text":"完成 Visit Japan Web 登錄並截圖入境與海關 QR Code","category":"入境","done":false},{"id":"pre-4","text":"購買日本上網 eSIM／SIM 卡並確認開通教學","category":"通訊","done":false},{"id":"pre-5","text":"投保海外旅遊平安險與班機延誤不便險","category":"保險","done":false},{"id":"pre-6","text":"兌換日幣現金、確認免手續費海外信用卡並開啟刷卡通知","category":"金錢","done":false},{"id":"pre-7","text":"下載 Google Maps 離線地圖（東京・箱根・山梨・靜岡・橫濱）","category":"離線準備","done":false}],"packing":[{"id":"pack-1","text":"保暖洋蔥式冬裝（發熱衣、毛衣、防風羽絨外套；富士山冬日約 -2°C～8°C）","category":"保暖冬裝","done":false},{"id":"pack-2","text":"毛帽、圍巾、防風觸控手套與厚保暖襪","category":"保暖冬裝","done":false},{"id":"pack-3","text":"好走防滑休閒鞋（箱根神社與伊豆山神社 189 階必備）","category":"保暖冬裝","done":false},{"id":"pack-4","text":"護照、駕照正本＋日文譯本、日幣現金、信用卡與 Suica／ICOCA","category":"隨身重要","done":false},{"id":"pack-5","text":"行動電源（務必隨身手提勿託運）、充電線、多孔充電器與車充線","category":"3C 電力","done":false},{"id":"pack-6","text":"個人常備藥、暈車藥（箱根與伊豆山路）、暖暖包、保濕乳液與護唇膏","category":"藥品保養","done":false},{"id":"pack-7","text":"大容量摺疊購物袋與行李秤（御殿場 Outlet 與東京採買必備）","category":"購物收納","done":false}]},"initialReducedMotion":false,"daySvgs":{"haneda":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"羽田機場夜晚抵達插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#E1F1F8\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003ccircle cx=\"30\" cy=\"26\" r=\"11\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003cg class=\"anim-plane\">\n      \u003cpath d=\"M46 40L39 29H48L56 39Z\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n      \u003cpath d=\"M44 43C44 39 49 37 57 37H98C107 37 114 41 115 45C114 49 107 51 98 51H55C48 51 44 48 44 43Z\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n      \u003cpath d=\"M70 46H86L76 59H66Z\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n    \u003c/g>\n    \u003crect x=\"18\" y=\"66\" width=\"104\" height=\"16\" rx=\"6\" fill=\"#B9DAA5\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003crect x=\"88\" y=\"54\" width=\"22\" height=\"14\" rx=\"4\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n  \u003c/svg>","hakone":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"箱根鳥居與纜車插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#FCE5E0\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003cline x1=\"12\" y1=\"26\" x2=\"128\" y2=\"14\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-dasharray=\"4 4\"/>\n    \u003cg transform=\"translate(96, 17)\">\n      \u003cg class=\"anim-sway\">\n        \u003cline x1=\"0\" y1=\"0\" x2=\"0\" y2=\"10\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n        \u003crect x=\"-12\" y=\"10\" width=\"24\" height=\"17\" rx=\"5\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n        \u003crect x=\"-6\" y=\"14\" width=\"12\" height=\"6\" rx=\"2\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n      \u003c/g>\n    \u003c/g>\n    \u003crect x=\"4\" y=\"68\" width=\"132\" height=\"24\" rx=\"10\" fill=\"#A8D3E6\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003crect x=\"34\" y=\"34\" width=\"7\" height=\"38\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003crect x=\"64\" y=\"34\" width=\"7\" height=\"38\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003cpath d=\"M24 31C42 36 63 36 81 31L79 40C63 43 42 43 26 40Z\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n    \u003crect x=\"30\" y=\"46\" width=\"45\" height=\"6\" rx=\"2\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n  \u003c/svg>","fuji":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"富士山與五重塔插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#E1F1F8\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003cg class=\"anim-cloud\">\n      \u003cpath d=\"M84 23C84 19 88 16 93 17C96 13 103 13 106 17C111 17 114 21 113 25H87C84 25 83 24 84 23Z\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n    \u003c/g>\n    \u003cpath d=\"M22 86L60 32H78L116 86Z\" fill=\"#A8D3E6\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n    \u003cpath d=\"M60 32H78L88 47L78 44L70 50L62 44L51 47Z\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n    \u003c!-- Mini Pagoda -->\n    \u003cg transform=\"translate(18, 36)\">\n      \u003cline x1=\"16\" y1=\"2\" x2=\"16\" y2=\"10\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n      \u003cpath d=\"M4 16L16 9L28 16Z\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n      \u003cpath d=\"M2 27L16 20L30 27Z\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n      \u003cpath d=\"M0 38L16 31L32 38Z\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n      \u003crect x=\"9\" y=\"38\" width=\"14\" height=\"12\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n    \u003c/g>\n  \u003c/svg>","gotemba":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"御殿場購物袋與溫泉插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#FDF2D0\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003cpath d=\"M16 84L44 46H56L84 84Z\" fill=\"#A8D3E6\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n    \u003cpath d=\"M44 46H56L62 55L50 53L38 55Z\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/>\n    \u003cg class=\"anim-float\">\n      \u003cpath d=\"M74 36C74 26 94 26 94 36\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n      \u003crect x=\"64\" y=\"36\" width=\"40\" height=\"44\" rx=\"8\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n      \u003ccircle cx=\"84\" cy=\"58\" r=\"7\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n    \u003c/g>\n    \u003crect x=\"96\" y=\"48\" width=\"26\" height=\"32\" rx=\"6\" fill=\"#B9DAA5\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003cpath d=\"M103 48C103 41 115 41 115 48\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n  \u003c/svg>","izu":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"伊豆大室山與水豚泡湯插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#E7F3DF\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003c!-- Omuroyama Matcha Pudding Hill -->\n    \u003cpath d=\"M14 82C26 42 52 38 70 38C88 38 114 42 126 82Z\" fill=\"#B9DAA5\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n    \u003c!-- Onsen Tub & Cute Capybara -->\n    \u003cg class=\"anim-float\">\n      \u003cpath d=\"M56 30C54 25 58 22 56 17M70 28C68 23 72 20 70 15M84 30C82 25 86 22 84 17\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    \u003c/g>\n    \u003cellipse cx=\"70\" cy=\"60\" rx=\"22\" ry=\"15\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003c!-- Yuzu on head -->\n    \u003ccircle cx=\"70\" cy=\"43\" r=\"6\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n    \u003cpath d=\"M62 58H66M74 58H78\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    \u003cellipse cx=\"70\" cy=\"63\" rx=\"3\" ry=\"2\" fill=\"#3E3A39\"/>\n    \u003crect x=\"38\" y=\"66\" width=\"64\" height=\"20\" rx=\"8\" fill=\"#A8D3E6\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n  \u003c/svg>","atami":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"熱海梅花與布丁插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#FCE5E0\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003c!-- Plum Blossom -->\n    \u003cg class=\"anim-sway\" transform=\"translate(38, 36)\">\n      \u003ccircle cx=\"0\" cy=\"-11\" r=\"8\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003ccircle cx=\"11\" cy=\"-3\" r=\"8\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003ccircle cx=\"7\" cy=\"10\" r=\"8\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003ccircle cx=\"-7\" cy=\"10\" r=\"8\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003ccircle cx=\"-11\" cy=\"-3\" r=\"8\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003ccircle cx=\"0\" cy=\"0\" r=\"6\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n    \u003c/g>\n    \u003c!-- Cute Pudding Jar -->\n    \u003cg class=\"anim-float\" transform=\"translate(76, 26)\">\n      \u003crect x=\"8\" y=\"0\" width=\"24\" height=\"10\" rx=\"4\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n      \u003cpath d=\"M10 10H30L36 24V48C36 53 32 56 27 56H13C8 56 4 53 4 48V24L10 10Z\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n      \u003crect x=\"6\" y=\"28\" width=\"28\" height=\"24\" rx=\"5\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003cpath d=\"M14 40C17 43 23 43 26 40\" stroke=\"#3E3A39\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    \u003c/g>\n  \u003c/svg>","tokyo":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"東京鐵塔與電車購物插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#FDF2D0\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003c!-- Tokyo Tower -->\n    \u003cpath d=\"M40 16L22 84H58L40 16Z\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n    \u003crect x=\"29\" y=\"46\" width=\"22\" height=\"9\" rx=\"3\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n    \u003cpath d=\"M31 84C31 74 49 74 49 84Z\" fill=\"#FDF2D0\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n    \u003c!-- Train & Shopping Bag -->\n    \u003cg class=\"anim-float\" transform=\"translate(72, 34)\">\n      \u003crect x=\"0\" y=\"10\" width=\"48\" height=\"36\" rx=\"10\" fill=\"#A8D3E6\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n      \u003crect x=\"8\" y=\"18\" width=\"14\" height=\"12\" rx=\"3\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003crect x=\"26\" y=\"18\" width=\"14\" height=\"12\" rx=\"3\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003ccircle cx=\"13\" cy=\"38\" r=\"3\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n      \u003ccircle cx=\"35\" cy=\"38\" r=\"3\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n    \u003c/g>\n  \u003c/svg>","yokohama":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"橫濱摩天輪與紅磚倉庫插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#E1F1F8\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003cg transform=\"translate(46, 42)\">\n      \u003cg class=\"anim-spin-slow\">\n        \u003ccircle cx=\"0\" cy=\"0\" r=\"24\" fill=\"none\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n        \u003cline x1=\"0\" y1=\"-24\" x2=\"0\" y2=\"24\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n        \u003cline x1=\"-24\" y1=\"0\" x2=\"24\" y2=\"0\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n        \u003ccircle cx=\"0\" cy=\"-24\" r=\"4\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n        \u003ccircle cx=\"24\" cy=\"0\" r=\"4\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n        \u003ccircle cx=\"0\" cy=\"24\" r=\"4\" fill=\"#B9DAA5\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n        \u003ccircle cx=\"-24\" cy=\"0\" r=\"4\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n      \u003c/g>\n      \u003cpath d=\"M-12 36L0 0L12 36\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003ccircle cx=\"0\" cy=\"0\" r=\"5\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n    \u003c/g>\n    \u003c!-- Red Brick Warehouse -->\n    \u003crect x=\"76\" y=\"48\" width=\"46\" height=\"30\" rx=\"4\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003cpath d=\"M72 48L99 34L126 48Z\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n    \u003crect x=\"85\" y=\"57\" width=\"8\" height=\"10\" rx=\"2\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n    \u003crect x=\"104\" y=\"57\" width=\"8\" height=\"10\" rx=\"2\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n    \u003crect x=\"4\" y=\"76\" width=\"132\" height=\"16\" rx=\"8\" fill=\"#A8D3E6\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n  \u003c/svg>","return":"\u003csvg viewBox=\"0 0 140 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"返程行李箱與小飛機插圖\" class=\"w-28 sm:w-32 h-auto block shrink-0\">\n    \u003crect x=\"4\" y=\"4\" width=\"132\" height=\"88\" rx=\"16\" fill=\"#E7F3DF\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n    \u003c!-- Suitcase -->\n    \u003cg transform=\"translate(26, 26)\">\n      \u003cpath d=\"M16 12V4C16 2 18 0 20 0H34C36 0 38 2 38 4V12\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n      \u003crect x=\"4\" y=\"12\" width=\"46\" height=\"42\" rx=\"10\" fill=\"#F6D27A\" stroke=\"#3E3A39\" stroke-width=\"3\"/>\n      \u003cline x1=\"17\" y1=\"12\" x2=\"17\" y2=\"54\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003cline x1=\"37\" y1=\"12\" x2=\"37\" y2=\"54\" stroke=\"#3E3A39\" stroke-width=\"2.5\"/>\n      \u003crect x=\"21\" y=\"25\" width=\"12\" height=\"12\" rx=\"3\" fill=\"#F2A497\" stroke=\"#3E3A39\" stroke-width=\"2\"/>\n      \u003ccircle cx=\"13\" cy=\"57\" r=\"4\" fill=\"#3E3A39\"/>\n      \u003ccircle cx=\"41\" cy=\"57\" r=\"4\" fill=\"#3E3A39\"/>\n    \u003c/g>\n    \u003c!-- Little Plane Taking Off -->\n    \u003cg class=\"anim-plane\" transform=\"translate(76, 18)\">\n      \u003cpath d=\"M6 22L44 10L34 32L24 24L14 30L16 21Z\" fill=\"#FFFCF6\" stroke=\"#3E3A39\" stroke-width=\"3\" stroke-linejoin=\"round\"/>\n    \u003c/g>\n  \u003c/svg>"}};
+      const STORAGE_FLIGHTS = 'pb_trip_flights_v1';
+      const STORAGE_LISTS = 'pb_trip_lists_v1';
+      const STORAGE_MOTION = 'pb_trip_reduced_motion_v1';
+
+      function loadJson(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch (e) {
+          return fallback;
+        }
+      }
+      function esc(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      let flights = loadJson(STORAGE_FLIGHTS, DATA.initialFlights);
+      let editingFlightId = null;
+      let checklists = loadJson(STORAGE_LISTS, DATA.initialChecklists);
+      let activeDay = 0;
+      let activeListKey = 'todo';
+      let reducedMotion = loadJson(STORAGE_MOTION, DATA.initialReducedMotion);
+
+      const htmlEl = document.documentElement;
+      const motionBtn = document.getElementById('motionBtn');
+
+      function applyMotion() {
+        htmlEl.setAttribute('data-reduced-motion', reducedMotion ? 'true' : 'false');
+        motionBtn.setAttribute('aria-pressed', reducedMotion ? 'true' : 'false');
+        motionBtn.textContent = reducedMotion ? '動態：已減少' : '減少動態';
+        try { localStorage.setItem(STORAGE_MOTION, JSON.stringify(reducedMotion)); } catch (e) {}
+      }
+      motionBtn.addEventListener('click', function () {
+        reducedMotion = !reducedMotion;
+        applyMotion();
+      });
+      applyMotion();
+
+      // Countdown
+      function updateCountdown() {
+        const target = new Date(DATA.meta.departureIso).getTime();
+        const diff = target - Date.now();
+        const lbl = document.getElementById('countdownLabel');
+        if (diff <= 0) {
+          lbl.textContent = '旅程已經出發啦！祝旅途平安愉快';
+          ['cd-d','cd-h','cd-m','cd-s'].forEach(function (id) {
+            document.getElementById(id).textContent = '00';
+          });
+          return;
+        }
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-d').textContent = String(days).padStart(2, '0');
+        document.getElementById('cd-h').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cd-m').textContent = String(mins).padStart(2, '0');
+        document.getElementById('cd-s').textContent = String(secs).padStart(2, '0');
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Flights
+      function renderFlights() {
+        const grid = document.getElementById('flightsGrid');
+        grid.innerHTML = flights.map(function (f) {
+          const isEdit = editingFlightId === f.id;
+          if (isEdit) {
+            return '<div class="card">' +
+              '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">' +
+                '<strong>編輯 ' + esc(f.label) + '（' + esc(f.date) + '）</strong>' +
+              '</div>' +
+              '<form data-flight-form="' + f.id + '">' +
+                '<div class="field-grid">' +
+                  '<div class="field"><label>航空公司</label><input name="airline" value="' + esc(f.airline) + '" /></div>' +
+                  '<div class="field"><label>航班編號</label><input name="flightNumber" value="' + esc(f.flightNumber) + '" /></div>' +
+                  '<div class="field"><label>出發代碼</label><input name="fromCode" value="' + esc(f.fromCode) + '" /></div>' +
+                  '<div class="field"><label>出發機場</label><input name="fromName" value="' + esc(f.fromName) + '" /></div>' +
+                  '<div class="field"><label>抵達代碼</label><input name="toCode" value="' + esc(f.toCode) + '" /></div>' +
+                  '<div class="field"><label>抵達機場</label><input name="toName" value="' + esc(f.toName) + '" /></div>' +
+                  '<div class="field"><label>起飛時間</label><input name="departTime" value="' + esc(f.departTime) + '" /></div>' +
+                  '<div class="field"><label>抵達時間</label><input name="arriveTime" value="' + esc(f.arriveTime) + '" /></div>' +
+                  '<div class="field"><label>航廈</label><input name="terminal" value="' + esc(f.terminal) + '" /></div>' +
+                  '<div class="field"><label>訂位代號</label><input name="bookingRef" value="' + esc(f.bookingRef) + '" /></div>' +
+                '</div>' +
+                '<div class="field" style="margin-top:10px;"><label>備註</label><input name="note" value="' + esc(f.note) + '" /></div>' +
+                '<div style="display:flex;gap:10px;margin-top:14px;">' +
+                  '<button type="submit" class="btn btn-sm btn-wakatake">儲存航班</button>' +
+                  '<button type="button" class="btn btn-sm" data-cancel-flight>取消</button>' +
+                '</div>' +
+              '</form>' +
+            '</div>';
+          }
+          const badgeBg = f.id === 'outbound' ? 'var(--mizuiro)' : 'var(--coral)';
+          return '<div class="card">' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">' +
+              '<div><span class="tag" style="background:' + badgeBg + '">' + esc(f.label) + '</span> <span class="muted" style="margin-left:6px;">' + esc(f.date) + '（' + esc(f.weekday) + '）</span></div>' +
+              '<button type="button" class="btn btn-sm btn-yamabuki" data-edit-flight="' + f.id + '">編輯航班</button>' +
+            '</div>' +
+            '<div class="flight-route">' +
+              '<div><div class="airport-code">' + esc(f.fromCode) + '</div><div class="muted">' + esc(f.fromName) + '</div><div style="font-weight:700;">' + esc(f.departTime) + '</div></div>' +
+              '<div style="font-weight:700;font-size:20px;">✈</div>' +
+              '<div style="text-align:right;"><div class="airport-code">' + esc(f.toCode) + '</div><div class="muted">' + esc(f.toName) + '</div><div style="font-weight:700;">' + esc(f.arriveTime) + '</div></div>' +
+            '</div>' +
+            '<div class="muted">' + esc(f.airline) + ' · ' + esc(f.flightNumber) + ' · ' + esc(f.terminal) + ' · 代號 ' + esc(f.bookingRef) + '</div>' +
+            '<p style="margin:8px 0 0;font-size:14px;">' + esc(f.note) + '</p>' +
+          '</div>';
+        }).join('');
+
+        grid.querySelectorAll('[data-edit-flight]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            editingFlightId = btn.getAttribute('data-edit-flight');
+            renderFlights();
+          });
+        });
+        grid.querySelectorAll('[data-cancel-flight]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            editingFlightId = null;
+            renderFlights();
+          });
+        });
+        grid.querySelectorAll('[data-flight-form]').forEach(function (form) {
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const fid = form.getAttribute('data-flight-form');
+            const fd = new FormData(form);
+            flights = flights.map(function (item) {
+              if (item.id !== fid) return item;
+              return Object.assign({}, item, {
+                airline: fd.get('airline'),
+                flightNumber: fd.get('flightNumber'),
+                fromCode: fd.get('fromCode'),
+                fromName: fd.get('fromName'),
+                toCode: fd.get('toCode'),
+                toName: fd.get('toName'),
+                departTime: fd.get('departTime'),
+                arriveTime: fd.get('arriveTime'),
+                terminal: fd.get('terminal'),
+                bookingRef: fd.get('bookingRef'),
+                note: fd.get('note')
+              });
+            });
+            try { localStorage.setItem(STORAGE_FLIGHTS, JSON.stringify(flights)); } catch (err) {}
+            editingFlightId = null;
+            renderFlights();
+          });
+        });
+      }
+
+      // Days & Timeline
+      function accentSoft(color) {
+        if (color === 'coral') return 'var(--coral-soft)';
+        if (color === 'yamabuki') return 'var(--yamabuki-soft)';
+        if (color === 'wakatake') return 'var(--wakatake-soft)';
+        return 'var(--mizuiro-soft)';
+      }
+
+      function renderDayTabs() {
+        const tabs = document.getElementById('dayTabs');
+        tabs.innerHTML = DATA.days.map(function (d, idx) {
+          return '<button type="button" role="tab" aria-selected="' + (idx === activeDay ? 'true' : 'false') + '" class="day-tab ' + (idx === activeDay ? 'active' : '') + '" data-day-idx="' + idx + '">' +
+            '<span>Day ' + d.day + '</span>' +
+            '<small>' + esc(d.shortDate) + '（' + esc(d.weekday) + '）</small>' +
+          '</button>';
+        }).join('');
+        tabs.querySelectorAll('[data-day-idx]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            activeDay = Number(btn.getAttribute('data-day-idx'));
+            renderDayTabs();
+            renderDayPanel();
+          });
+        });
+      }
+
+      function renderDayPanel() {
+        const d = DATA.days[activeDay];
+        const panel = document.getElementById('dayPanel');
+        const stopsHtml = d.stops.map(function (s, i) {
+          const tStyle = DATA.transportStyle[s.transport] || { bg: '#A8D3E6', label: '移動' };
+          const delay = reducedMotion ? 0 : Math.min(i * 45, 280);
+          return '<article class="stop-card anim-day-bounce" style="animation-delay:' + delay + 'ms">' +
+            '<span class="stop-dot" style="background:' + (s.mustVisit ? 'var(--coral)' : s.isHotel ? 'var(--wakatake)' : 'var(--yamabuki)') + '"></span>' +
+            '<div class="stop-head">' +
+              '<span class="stop-time">' + esc(s.time) + '</span>' +
+              '<span class="tag" style="background:' + tStyle.bg + '">' + esc(s.transportLabel) + '</span>' +
+              (s.mustVisit ? '<span class="tag stamp-must">★ 必去</span>' : '') +
+              (s.duration ? '<span class="muted">' + esc(s.duration) + '</span>' : '') +
+              (s.transitNote ? '<span class="muted">· ' + esc(s.transitNote) + '</span>' : '') +
+            '</div>' +
+            '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;">' +
+              '<h4 style="margin:0;font-size:18px;">' + esc(s.name) + '</h4>' +
+              '<a href="' + esc(s.mapUrl) + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-mizuiro">Google 地圖導航</a>' +
+            '</div>' +
+            (s.note ? '<div class="note-box">' + esc(s.note) + '</div>' : '') +
+            (s.auditTip ? '<div class="audit-box"><strong>核對小提醒：</strong>' + esc(s.auditTip) + '</div>' : '') +
+          '</article>';
+        }).join('');
+
+        panel.innerHTML =
+          '<div class="day-banner anim-day-bounce" style="background:' + accentSoft(d.accentColor) + '">' +
+            (DATA.daySvgs[d.sceneKey] || '') +
+            '<div style="flex:1;min-width:220px;">' +
+              '<div class="muted">Day ' + d.day + ' · ' + esc(d.date) + '（週' + esc(d.weekday) + '）· ' + esc(d.area) + '</div>' +
+              '<h3 style="margin:4px 0 6px;font-size:21px;">' + esc(d.themeTitle) + '</h3>' +
+              (d.daySummaryTip ? '<p style="margin:0;font-size:14px;">' + esc(d.daySummaryTip) + '</p>' : '') +
+            '</div>' +
+          '</div>' +
+          '<div class="timeline">' + stopsHtml + '</div>';
+      }
+
+      // Stays
+      function renderStays() {
+        const grid = document.getElementById('staysGrid');
+        grid.innerHTML = DATA.stays.map(function (st) {
+          return '<article class="card" style="background:' + accentSoft(st.accent) + '">' +
+            '<div class="muted">' + esc(st.checkIn) + ' ～ ' + esc(st.checkOut) + ' · 共 ' + st.nights + ' 晚</div>' +
+            '<h3 style="margin:4px 0 6px;font-size:19px;">' + esc(st.name) + '</h3>' +
+            '<div class="muted" style="margin-bottom:8px;">' + esc(st.area) + '</div>' +
+            '<p style="margin:0 0 8px;font-size:14.5px;">' + esc(st.highlights) + '</p>' +
+            (st.checkInNote ? '<div style="padding:10px 12px;background:var(--washi);border:2.5px solid var(--ink);border-radius:14px;font-size:13.5px;margin-bottom:12px;">' + esc(st.checkInNote) + '</div>' : '') +
+            '<div style="display:flex;flex-wrap:wrap;gap:10px;">' +
+              '<a href="' + esc(st.mapUrl) + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Google 地圖</a>' +
+              '<button type="button" class="btn btn-sm btn-yamabuki" data-jump-day="' + (st.dayNumber - 1) + '">看 Day ' + st.dayNumber + ' 入住行程</button>' +
+            '</div>' +
+          '</article>';
+        }).join('');
+        grid.querySelectorAll('[data-jump-day]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            activeDay = Number(btn.getAttribute('data-jump-day'));
+            renderDayTabs();
+            renderDayPanel();
+            document.getElementById('itinerary').scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+          });
+        });
+      }
+
+      // Checklists
+      const LIST_META = [
+        { key: 'todo', label: '待辦清單', color: 'var(--coral)' },
+        { key: 'preDeparture', label: '出發前清單', color: 'var(--yamabuki)' },
+        { key: 'packing', label: '行李清單', color: 'var(--wakatake)' }
+      ];
+
+      function saveChecklists() {
+        try { localStorage.setItem(STORAGE_LISTS, JSON.stringify(checklists)); } catch (e) {}
+      }
+
+      function renderChecklists() {
+        const tabs = document.getElementById('clTabs');
+        tabs.innerHTML = LIST_META.map(function (m) {
+          const items = checklists[m.key] || [];
+          const done = items.filter(function (i) { return i.done; }).length;
+          return '<button type="button" class="btn btn-sm" style="background:' + (activeListKey === m.key ? m.color : 'var(--washi)') + '" data-list-key="' + m.key + '">' +
+            esc(m.label) + '（' + done + '/' + items.length + '）' +
+          '</button>';
+        }).join('');
+        tabs.querySelectorAll('[data-list-key]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            activeListKey = btn.getAttribute('data-list-key');
+            renderChecklists();
+          });
+        });
+
+        const items = checklists[activeListKey] || [];
+        const doneCount = items.filter(function (i) { return i.done; }).length;
+        const pct = items.length ? Math.round((doneCount / items.length) * 100) : 0;
+        const body = document.getElementById('clBody');
+
+        body.innerHTML =
+          '<div style="display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700;">' +
+            '<span>已完成 ' + doneCount + ' / ' + items.length + ' 項</span>' +
+            '<span>' + pct + '%</span>' +
+          '</div>' +
+          '<div class="progress-track"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
+          (items.length === 0 ? '<p class="muted">目前還沒有項目，請在下方新增一筆！</p>' : items.map(function (it) {
+            return '<div class="cl-row ' + (it.done ? 'done' : '') + '">' +
+              '<label class="cl-label">' +
+                '<input type="checkbox" ' + (it.done ? 'checked' : '') + ' data-toggle-item="' + esc(it.id) + '" style="position:absolute;opacity:0;width:1px;height:1px;" />' +
+                '<span class="cl-box" aria-hidden="true">' + (it.done ? '✓' : '') + '</span>' +
+                '<span class="cl-text">' + (it.category ? '<span class="muted">[' + esc(it.category) + '] </span>' : '') + esc(it.text) + '</span>' +
+              '</label>' +
+              '<button type="button" class="btn btn-sm" data-del-item="' + esc(it.id) + '" aria-label="刪除此項目">刪除</button>' +
+            '</div>';
+          }).join('')) +
+          '<form id="addItemForm" class="add-form">' +
+            '<input id="newItemInput" type="text" placeholder="輸入要新增的項目..." required />' +
+            '<button type="submit" class="btn btn-sm btn-coral">新增項目</button>' +
+          '</form>';
+
+        body.querySelectorAll('[data-toggle-item]').forEach(function (cb) {
+          cb.addEventListener('change', function () {
+            const id = cb.getAttribute('data-toggle-item');
+            checklists[activeListKey] = checklists[activeListKey].map(function (it) {
+              return it.id === id ? Object.assign({}, it, { done: !it.done }) : it;
+            });
+            saveChecklists();
+            renderChecklists();
+          });
+        });
+        body.querySelectorAll('[data-del-item]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const id = btn.getAttribute('data-del-item');
+            checklists[activeListKey] = checklists[activeListKey].filter(function (it) { return it.id !== id; });
+            saveChecklists();
+            renderChecklists();
+          });
+        });
+        const form = document.getElementById('addItemForm');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const inp = document.getElementById('newItemInput');
+          const txt = inp.value.trim();
+          if (!txt) return;
+          checklists[activeListKey] = checklists[activeListKey].concat([{
+            id: 'custom-' + Date.now(),
+            text: txt,
+            category: '自訂',
+            done: false
+          }]);
+          saveChecklists();
+          renderChecklists();
+        });
+      }
+
+      renderFlights();
+      renderDayTabs();
+      renderDayPanel();
+      renderStays();
+      renderChecklists();
+    })();
+  </script>
+</body>
+</html>
